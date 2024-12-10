@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c245c375c2714643b6779f5eb9899275" Name="Diagram1">
+        <EntityTypeShape EntityType="eurekabankModel.Asignado" Width="1.5" PointX="6" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="eurekabankModel.CargoMantenimiento" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="eurekabankModel.Cliente" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eurekabankModel.Contador" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="eurekabankModel.CostoMovimiento" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="eurekabankModel.Cuenta" Width="1.5" PointX="6" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eurekabankModel.Empleado" Width="1.5" PointX="3.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="eurekabankModel.InteresMensual" Width="1.5" PointX="3" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="eurekabankModel.Moneda" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="eurekabankModel.Movimiento" Width="1.5" PointX="8.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="eurekabankModel.Parametro" Width="1.5" PointX="8.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="eurekabankModel.Sucursal" Width="1.5" PointX="3.75" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="eurekabankModel.TipoMovimiento" Width="1.5" PointX="6" PointY="2.75" IsExpanded="true" />
+        <AssociationConnector Association="eurekabankModel.fk_asignado_empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="eurekabankModel.fk_asignado_sucursal" ManuallyRouted="false" />
+        <AssociationConnector Association="eurekabankModel.fk_cargomantenimiento_moneda" ManuallyRouted="false" />
+        <AssociationConnector Association="eurekabankModel.fk_cuenta_cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="eurekabankModel.fk_costomovimiento_moneda" ManuallyRouted="false" />
+        <AssociationConnector Association="eurekabankModel.fk_cuenta_moneda" ManuallyRouted="false" />
+        <AssociationConnector Association="eurekabankModel.fk_cuenta_sucursal" ManuallyRouted="false" />
+        <AssociationConnector Association="eurekabankModel.fk_cuente_empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="eurekabankModel.fk_movimiento_cuenta" ManuallyRouted="false" />
+        <AssociationConnector Association="eurekabankModel.fk_movimiento_empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="eurekabankModel.fk_interesmensual_moneda" ManuallyRouted="false" />
+        <AssociationConnector Association="eurekabankModel.fk_movimiento_tipomovimiento" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
