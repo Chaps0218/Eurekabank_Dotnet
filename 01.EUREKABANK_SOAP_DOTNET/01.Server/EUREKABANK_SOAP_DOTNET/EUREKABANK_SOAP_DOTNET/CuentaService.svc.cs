@@ -10,7 +10,7 @@ namespace EUREKABANK_SOAP_DOTNET
     {
         private readonly MovimientoService movimientoService = new MovimientoService();
 
-        public bool ActualizarSaldoYRegistrarMovimiento(string codigoCuenta, string valorMovimiento, string tipo, string cuentaDest)
+        public string ActualizarSaldoYRegistrarMovimiento(string codigoCuenta, string valorMovimiento, string tipo, string cuentaDest)
         {
             try
             {
@@ -21,13 +21,13 @@ namespace EUREKABANK_SOAP_DOTNET
                 {
                     codTipo = "004";
                     if (!ActualizarSaldoCuenta(codigoCuenta, (decimal)-importe))
-                        return false;
+                        return "No retiro";
                 }
                 else if (tipo.Equals("DEP", StringComparison.OrdinalIgnoreCase))
                 {
                     codTipo = "003";
                     if (!ActualizarSaldoCuenta(codigoCuenta, (decimal)importe))
-                        return false;
+                        return "No depósito";
                 }
                 else if (tipo.Equals("TRA", StringComparison.OrdinalIgnoreCase))
                 {
@@ -37,14 +37,14 @@ namespace EUREKABANK_SOAP_DOTNET
 
                     // Deduct from source account
                     if (!ActualizarSaldoCuenta(codigoCuenta, (decimal)-importe))
-                        return false;
+                        return "No tra1";
 
                     // Add to destination account
                     if (!ActualizarSaldoCuenta(cuentaDest, (decimal)importe))
                     {
                         // Rollback source account update
                         ActualizarSaldoCuenta(codigoCuenta, (decimal)importe);
-                        return false;
+                        return "No tra2";
                     }
                 }
                 else
@@ -81,12 +81,12 @@ namespace EUREKABANK_SOAP_DOTNET
                     movimientoService.RegistrarMovimiento(movimientoDest);
                 }
 
-                return true;
+                return "Tutobenne";
             }
             catch (Exception ex)
             {
                 // Log the exception
-                return false;
+                return ex.ToString();
             }
         }
 

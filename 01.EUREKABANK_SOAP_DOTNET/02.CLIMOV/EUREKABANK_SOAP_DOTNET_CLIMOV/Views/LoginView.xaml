@@ -1,0 +1,30 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="EUREKABANK_SOAP_DOTNET_CLIMOV.Views.LoginView"
+             x:Class="EUREKABANK_SOAP_DOTNET_CLIMOV.Views.LoginView"
+             BackgroundImageSource="fondo.jpg">
+    <ScrollView>
+        <StackLayout x:Name="LoginStack" IsVisible="True" HorizontalOptions="Center" WidthRequest="300" Spacing="10" Margin="40, 90, 0, 0">
+            <Frame BackgroundColor="#efefef" CornerRadius="15" Padding="0" HasShadow="False" Margin="20" WidthRequest="300">
+                <StackLayout Padding="20" Spacing="20">
+                    <Image Source="logomonster.png" 
+                        Aspect="Fill" 
+                        HorizontalOptions="FillAndExpand" 
+                        VerticalOptions="FillAndExpand"
+                        HeightRequest="250"/>
+                    <Label Text="¡Bienvenido!" FontSize="30" TextColor="black" HorizontalOptions="Center" FontFamily="FredokaBold"/>
+                    <Frame BackgroundColor="white" CornerRadius="10" Padding="5" HasShadow="False">
+                        <Entry x:Name="UsernameEntry" Placeholder="Usuario" TextColor="black" BackgroundColor="Transparent" PlaceholderColor="black" FontFamily="FredokaRegular"/>
+                    </Frame>
+
+                    <Frame BackgroundColor="white" CornerRadius="10" Padding="5" HasShadow="False">
+                        <Entry x:Name="PasswordEntry" Placeholder="Contraseña" IsPassword="True" TextColor="black" BackgroundColor="Transparent" PlaceholderColor="black" FontFamily="FredokaRegular"/>
+                    </Frame>
+
+
+                    <Button Text="Login" BackgroundColor="#0d6efd" TextColor="White" Clicked="OnLoginClicked" FontFamily="FredokaSemiBold"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

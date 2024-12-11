@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EUREKABANK_SOAP_DOTNET_CLIMOV.Views.MovimientoView"
+             BackgroundImageSource="fondo.jpg">
+    <VerticalStackLayout>
+        <HorizontalStackLayout Padding="16" Margin="20,0,0,0">
+            <Frame BackgroundColor="white" CornerRadius="10" Padding="5" HasShadow="False" WidthRequest="200">
+                <Entry x:Name="AccountEntry" Placeholder="Ingrese cuenta" TextColor="black" BackgroundColor="Transparent" PlaceholderColor="black" FontFamily="FredokaRegular"/>
+            </Frame>
+            <Button Text="Buscar" BackgroundColor="#0d6efd" TextColor="White" Clicked="OnSearchClicked" FontFamily="FredokaBold" Margin="8,0,0,0"/>
+        </HorizontalStackLayout>
+        <Frame BackgroundColor="#efefef" CornerRadius="10" Padding="5" HasShadow="False" Margin="10">
+            <ScrollView x:Name="MovimientosScrollView">
+                <VerticalStackLayout x:Name="MovimientosContainer" Padding="12">
+                    <Label x:Name="NoMovimientosLabel" Text="No se encontraron movimientos para esta cuenta" HorizontalTextAlignment="Center" FontSize="16" Padding="0,32,0,32" IsVisible="False"/>
+                </VerticalStackLayout>
+            </ScrollView>
+        </Frame>
+        <Button Text="Agregar" BackgroundColor="#0d6efd" TextColor="White" Clicked="OnAgregarClicked" FontFamily="FredokaBold" HorizontalOptions="End" VerticalOptions="End" Margin="16"/>
+    </VerticalStackLayout>
+</ContentPage>
