@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EUREKABANK_SOAP_DOTNET_CLIMOV.Views.CuentaView"
+             BackgroundImageSource="fondo.jpg">
+
+    <ScrollView>
+        <VerticalStackLayout 
+            Spacing="16"
+            Padding="16"
+            VerticalOptions="Center"
+            BackgroundColor="#efefef">
+
+            <Image 
+                Source="oozma.png"
+                HeightRequest="220"
+                WidthRequest="220"
+                HorizontalOptions="Center"/>
+
+            <Picker x:Name="OperationPicker"
+                    Title="Seleccione Operación"
+                    TitleColor="#4E4D4D"
+                    BackgroundColor="White"
+                    FontFamily="Fredoka-Regular"
+                    HeightRequest="50"
+                    SelectedIndexChanged="OnOperationPickerSelectedIndexChanged">
+                <Picker.Items>
+                    <x:String>Depósito</x:String>
+                    <x:String>Retiro</x:String>
+                    <x:String>Transferencia</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Frame BackgroundColor="white" CornerRadius="10" Padding="5" HasShadow="False">
+                <Entry x:Name="AccountEntry"
+                       Placeholder="Número de Cuenta"
+                       TextColor="black"
+                       BackgroundColor="Transparent"
+                       PlaceholderColor="black"
+                       FontFamily="Fredoka-Regular"
+                       HeightRequest="50"/>
+            </Frame>
+
+            <Frame BackgroundColor="white" CornerRadius="10" Padding="5" HasShadow="False">
+                <Entry x:Name="AmountEntry"
+                       Placeholder="Monto"
+                       Keyboard="Numeric"
+                       TextColor="black"
+                       BackgroundColor="Transparent"
+                       PlaceholderColor="black"
+                       FontFamily="Fredoka-Regular"
+                       HeightRequest="50"/>
+            </Frame>
+
+            <Frame BackgroundColor="white" CornerRadius="10" Padding="5" HasShadow="False">
+                <Entry x:Name="DestinationAccountEntry"
+                       Placeholder="Cuenta Destino"
+                       TextColor="black"
+                       BackgroundColor="Transparent"
+                       PlaceholderColor="black"
+                       FontFamily="Fredoka-Regular"
+                       HeightRequest="50"
+                       IsVisible="False"/>
+            </Frame>
+
+            <Button x:Name="ProcessButton"
+                    Text="Procesar"
+                    BackgroundColor="#0D6EFC"
+                    TextColor="White"
+                    FontFamily="Fredoka-Bold"
+                    Clicked="OnProcessButtonClicked"/>
+
+            <Button x:Name="CancelButton"
+                    Text="Cancelar"
+                    BackgroundColor="#A6FC0D0D"
+                    TextColor="White"
+                    FontFamily="Fredoka-Bold"
+                    Clicked="OnCancelButtonClicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

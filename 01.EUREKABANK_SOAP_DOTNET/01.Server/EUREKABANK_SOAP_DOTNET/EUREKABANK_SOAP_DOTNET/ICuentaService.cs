@@ -12,6 +12,6 @@ namespace EUREKABANK_SOAP_DOTNET
     public interface ICuentaService
     {
         [OperationContract]
-        bool ActualizarSaldoYRegistrarMovimiento(string codigoCuenta, string valorMovimiento, string tipo, string cuentaDest);
+        string ActualizarSaldoYRegistrarMovimiento(string codigoCuenta, string valorMovimiento, string tipo, string cuentaDest);
     }
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="EUREKABANK_SOAP_DOTNET_CLIMOV.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:EUREKABANK_SOAP_DOTNET_CLIMOV"
+    Shell.FlyoutBehavior="Disabled"
+    Title="EUREKABANK_SOAP_DOTNET_CLIMOV">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+</Shell>
