@@ -69,22 +69,88 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CuentaService.svc" />
+    <Content Include="LoginService.svc" />
     <Content Include="Models\EurekabankEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>EurekabankEntities.Context.cs</LastGenOutput>
+      <DependentUpon>EurekabankEntities.edmx</DependentUpon>
     </Content>
+    <Content Include="Models\EurekabankEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EurekabankEntities.edmx</DependentUpon>
+      <LastGenOutput>EurekabankEntities.cs</LastGenOutput>
+    </Content>
+    <Content Include="MovimientoService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CuentaService.svc.cs">
+      <DependentUpon>CuentaService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ICuentaService.cs" />
+    <Compile Include="ILoginService.cs" />
+    <Compile Include="IMovimientoService.cs" />
+    <Compile Include="LoginService.svc.cs">
+      <DependentUpon>LoginService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Asignado.cs">
+      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CargoMantenimiento.cs">
+      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cliente.cs">
+      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contador.cs">
+      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CostoMovimiento.cs">
+      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cuenta.cs">
+      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CustomMovimientoModel.cs" />
+    <Compile Include="Models\Empleado.cs">
+      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\EurekabankEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EurekabankEntities.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\EurekabankEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\EurekabankEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EurekabankEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InteresMensual.cs">
+      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Moneda.cs">
+      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Movimiento.cs">
+      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Parametro.cs">
+      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sucursal.cs">
+      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoMovimiento.cs">
+      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MovimientoService.svc.cs">
+      <DependentUpon>MovimientoService.svc</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -96,9 +162,9 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>EurekabankEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\EurekabankEntities.edmx.diagram">
+    <Content Include="Models\EurekabankEntities.edmx.diagram">
       <DependentUpon>EurekabankEntities.edmx</DependentUpon>
-    </None>
+    </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

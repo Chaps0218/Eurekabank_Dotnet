@@ -14,7 +14,7 @@ namespace WS_EUREKABANK_SOAP_DOTNET
     {
         private readonly MovimientoService movimientoService = new MovimientoService();
 
-        public string ActualizarSaldoYRegistrarMovimiento(string codigoCuenta, string valorMovimiento, string tipo, string cuentaDest)
+        public bool ActualizarSaldoYRegistrarMovimiento(string codigoCuenta, string valorMovimiento, string tipo, string cuentaDest)
         {
             try
             {
@@ -25,13 +25,13 @@ namespace WS_EUREKABANK_SOAP_DOTNET
                 {
                     codTipo = "004";
                     if (!ActualizarSaldoCuenta(codigoCuenta, (decimal)-importe))
-                        return "No retiro";
+                        return false;
                 }
                 else if (tipo.Equals("DEP", StringComparison.OrdinalIgnoreCase))
                 {
                     codTipo = "003";
                     if (!ActualizarSaldoCuenta(codigoCuenta, (decimal)importe))
-                        return "No depósito";
+                        return false;
                 }
                 else if (tipo.Equals("TRA", StringComparison.OrdinalIgnoreCase))
                 {
@@ -41,14 +41,14 @@ namespace WS_EUREKABANK_SOAP_DOTNET
 
                     // Deduct from source account
                     if (!ActualizarSaldoCuenta(codigoCuenta, (decimal)-importe))
-                        return "No tra1";
+                        return false;
 
                     // Add to destination account
                     if (!ActualizarSaldoCuenta(cuentaDest, (decimal)importe))
                     {
                         // Rollback source account update
                         ActualizarSaldoCuenta(codigoCuenta, (decimal)importe);
-                        return "No tra2";
+                        return false;
                     }
                 }
                 else
@@ -85,7 +85,7 @@ namespace WS_EUREKABANK_SOAP_DOTNET
                     movimientoService.RegistrarMovimiento(movimientoDest);
                 }
 
-                return "Tutobenne";
+                return true;
             }
             catch (Exception ex)
             {

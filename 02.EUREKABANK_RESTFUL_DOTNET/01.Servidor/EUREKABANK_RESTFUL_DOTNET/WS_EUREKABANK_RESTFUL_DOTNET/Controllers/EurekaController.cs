@@ -30,7 +30,7 @@ namespace WS_EUREKABANK_RESTFUL_DOTNET.Controllers
         }
 
         [HttpPost]
-        public string ProcesarMovimiento()
+        public bool ProcesarMovimiento()
         {
             try
             {
@@ -47,13 +47,13 @@ namespace WS_EUREKABANK_RESTFUL_DOTNET.Controllers
                     {
                         codTipo = "004";
                         if (!ActualizarSaldoCuenta(request.CodigoCuenta, (decimal)-importe))
-                            return "No retiro";
+                            return false;
                     }
                     else if (request.Tipo.Equals("DEP", StringComparison.OrdinalIgnoreCase))
                     {
                         codTipo = "003";
                         if (!ActualizarSaldoCuenta(request.CodigoCuenta, (decimal)importe))
-                            return "No depósito";
+                            return false;
                     }
                     else if (request.Tipo.Equals("TRA", StringComparison.OrdinalIgnoreCase))
                     {
@@ -63,14 +63,14 @@ namespace WS_EUREKABANK_RESTFUL_DOTNET.Controllers
 
                         // Deduct from source account
                         if (!ActualizarSaldoCuenta(request.CodigoCuenta, (decimal)-importe))
-                            return "No tra1";
+                            return false;
 
                         // Add to destination account
                         if (!ActualizarSaldoCuenta(request.CuentaDest, (decimal)importe))
                         {
                             // Rollback source account update
                             ActualizarSaldoCuenta(request.CodigoCuenta, (decimal)importe);
-                            return "No tra2";
+                            return false;
                         }
                     }
                     else
@@ -106,13 +106,13 @@ namespace WS_EUREKABANK_RESTFUL_DOTNET.Controllers
                         RegistrarMovimiento(movimientoDest);
                     }
 
-                    return "Tutobenne";
+                    return true;
                 }
             }
             catch (Exception ex)
             {
                 // Log the exception
-                return ex.ToString();
+                return false;
             }
         }
 
